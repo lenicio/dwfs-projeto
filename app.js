@@ -1,11 +1,11 @@
 const express = require("express");
-const productRoutes = require("./routes/productRoutes");
-
 const app = express();
+const productRoutes = require("./routes/productRoutes");
 
 app.use(express.json());
 app.use("/api", productRoutes);
 
-app.listen(3000, () => {
-  console.log(`Servidor rodando na porta 3000`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
